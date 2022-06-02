@@ -1,19 +1,19 @@
 import { FlatList, Button, View } from "react-native";
 import CategoryGridTile from "../components/categoryGridTile";
 import { CATEGORIES } from "../data/dummy-data";
-import MealsOverviewScreen from "./MealsOverviewScreen";
+import QRScanner from "./QRScanner";
 
 function HomeScreen({ navigation }) {
   function pressHandler() {
-    navigation.navigate("MealsOverview");
+    navigation.navigate("QRScanner");
   }
   function toolPressHandler() {
-    navigation.navigate("CategoriesScreen");
+    navigation.navigate("ToolList");
   }
   return (
     <View>
-      <Button title={"Meals"} onPress={pressHandler} />
-      <Button title={"Categories"} onPress={toolPressHandler} />
+      <Button title={"QR Scanner"} onPress={pressHandler} />
+      <Button title={"Tool List"} onPress={toolPressHandler} />
     </View>
   );
 }

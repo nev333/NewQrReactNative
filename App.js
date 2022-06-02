@@ -3,8 +3,8 @@ import { StyleSheet, Text, View, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
-import CategoriesScreen from "./screens/CategoriesScreen";
-import MealsOverviewScreen from "./screens/MealsOverviewScreen";
+import ToolList from "./screens/ToolList";
+import QRScanner from "./screens/QRScanner";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,8 +15,8 @@ function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
-          <Stack.Screen name="CategoriesScreen" component={CategoriesScreen} />
-          <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
+          <Stack.Screen name="ToolList" component={ToolList} />
+          <Stack.Screen name="QRScanner" component={QRScanner} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
