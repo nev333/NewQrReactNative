@@ -196,6 +196,7 @@ const filterData = (value) => {
           </View>
         )
       })}
+      {data.length === 0 && <Text>No result</Text>}
       </View>
       </ScrollView>
     </View>
