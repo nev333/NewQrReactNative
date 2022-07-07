@@ -59,6 +59,7 @@ const DropdownField = (props) => {
 };
 
 DropdownField.defaultProps = {
+  
   value: "",
   label: "",
 };

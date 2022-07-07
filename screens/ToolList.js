@@ -8,6 +8,7 @@ import { useState } from "react";
       id: "tool-0",
       name: "Blower",
       location: "",
+     // location: this.context.names
     },
     {
       id: "tool-1",
@@ -152,9 +153,14 @@ import { useState } from "react";
   ];
 
   export default function ToolList({ navigation }) {
+
+
  
 const [name, setName] = useState("")
 const [data, setData] = useState(tools)
+
+
+
 
 const handleChange = (value) => {
   setName(value)
@@ -164,7 +170,7 @@ const handleChange = (value) => {
 const filterData = (value) => {
   const lowerCaseValue = value.toLowerCase().trim();
   if (!lowerCaseValue) {
-    setData(tools);
+    setData(this.context.tools);
   } else {
     const filteredData = tools.filter((item) => {
       return Object.keys(item).some((key) => {
@@ -191,7 +197,9 @@ const filterData = (value) => {
         return (
           <View style={styles.tool}>
           <View style={[styles.innerContainer]}>
-            <Text style={styles.title} key={data.id} >{data.name}</Text>
+            <Text style={styles.title} key={data.id} >{data.name}
+            {data.data}
+            </Text>
           </View>
           </View>
         )
