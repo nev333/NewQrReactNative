@@ -200,6 +200,7 @@ const filterData = (value) => {
             <Text style={styles.title} key={data.id} >{data.name}
             {data.data}
             </Text>
+            <Text>hi</Text>
           </View>
           </View>
         )

@@ -9,13 +9,14 @@ import GlobalState from "./contexts/GlobalState";
 import React, { useContext, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import AppLoading from "expo-app-loading";
-
+// import { ToolUserContext } from "./contexts/ToolUserContext";
 import LoginScreen from "./screens/LoginScreen";
 import SignupScreen from "./screens/SignupScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import { Colors } from "./constants/styles";
 import AuthContextProvider, { AuthContext } from "./store/auth-context";
 import IconButton from "./components/ui/IconButton";
+// import ToolStatus from "./screens/ToolStatus";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,7 +37,17 @@ function AuthStack() {
 
 function AuthenticatedStack() {
   const authCtx = useContext(AuthContext);
+  // const [selectedUser, setSelectedUser] = useState('')
+  // const handleUSerChange = (newUser) => {
+  //   setSelectedUser = (newUser)
+  // }
+
+const userSelected = (user) => {
+console.log(user)
+}
+
   return (
+    // <ToolUserContext>
     <Stack.Navigator
       screenOptions={{
         headerStyle: { backgroundColor: Colors.primary500 },
@@ -50,7 +61,7 @@ function AuthenticatedStack() {
         options={{
           headerRight: ({ tintColor }) => (
             <IconButton
-              icon="exit}"
+              icon="exit"
               color={tintColor}
               size={24}
               onPress={authCtx.logout}
@@ -60,10 +71,15 @@ function AuthenticatedStack() {
       />
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="ToolList" component={ToolList} />
-      <Stack.Screen name="QRScanner" component={QRScanner} />
+      
+        <Stack.Screen name="QRScanner" onUserSelected={userSelected} component={QRScanner} />
+      
+      {/* <Stack.Screen name="ToolStatus" component={ToolStatus} /> */}
     </Stack.Navigator>
+    // </ToolUserContext>
   );
 }
+
 
 function Navigation() {
   const authCtx = useContext(AuthContext);
